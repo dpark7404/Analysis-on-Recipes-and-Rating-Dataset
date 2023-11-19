@@ -123,7 +123,7 @@ Null Hypothesis: There is no association between the missingness of ratings and 
 
 Alternative Hypothesis: The missingness of ratings is dependent on the minutes of recipe preparation.
 
-After running the permutation test on these columns we get an observed difference in means of 51.507230759 and a p-value of .121. Using 0.05 as the significant threshold, since the p-value is higher than the threshold, we can conclude that the missingness of `rating` is most likely not dependent on `minutes`, which is Missing Completely at Random, MCAR.
+After running the permutation test on these columns we get an observed difference in means of 86.49 and a p-value of .064. Using 0.05 as the significant threshold, since the p-value is higher than the threshold, we can conclude that the missingness of `rating` is most likely not dependent on `minutes`, which is Missing Completely at Random, MCAR.
 
 <iframe src="assets/fig_five_1.html" width=800 height=600 frameBorder=0></iframe>
 
@@ -132,7 +132,7 @@ Null Hypothesis: There is no association between the missingness of ratings and 
 
 Alternative Hypothesis: The missingness of ratings is dependent on the the number of step in the recipes.
 
-After running the permutation test on these columns we get an observed difference in means of 1.331260648 and a p-value of approximately 0.0. Using 0.05 as the significant threshold, since the p-value is lower than the threshold, we can conclude that the missingness of `rating` is most likely dependent on `n_steps`, which is Missing At Random, MAR.
+After running the permutation test on these columns we get an observed difference in means of 1.38 and a p-value of approximately 0.0. Using 0.05 as the significant threshold, since the p-value is lower than the threshold, we can conclude that the missingness of `rating` is most likely dependent on `n_steps`, which is Missing At Random, MAR.
 <iframe src="assets/fig_five_2.html" width=800 height=600 frameBorder=0></iframe>
 
 ## Hypothesis Testing
@@ -159,4 +159,4 @@ Since the data for `cal` are float types, we used the difference in mean as test
 <iframe src="assets/fig_six.html" width=800 height=600 frameBorder=0></iframe>
 
 ### Conclusion
-After conducting the permutation test, we get an observed difference in means of 9.1641596154437427 and a p-value of approximately 0.044. Using 0.05 as the significant threshold, since the p-value is lower than the threshold, we can reject the null hypothesis. This indicates a statistically significant difference in the mean calorie content across seasons, suggesting that seasonal variations play a role in influencing the nutritional composition of submitted recipes.
+After conducting the permutation test, we get an observed difference in means of 9.58574720690126 and a p-value of approximately 0.043. Using 0.05 as the significant threshold, since the p-value is lower than the threshold, we can reject the null hypothesis. This indicates a statistically significant difference in the mean calorie content across seasons, suggesting that seasonal variations play a role in influencing the nutritional composition of submitted recipes.
