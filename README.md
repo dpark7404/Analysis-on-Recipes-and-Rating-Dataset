@@ -43,9 +43,15 @@ We were most interested in the 'month', 'seasons', and 'calories' columns for th
 
 1. Here is our first analysis as a bar graph that plots 'index' on the x and 'month' on the y. This shows the distribution of recipes that were submitted each month. In this graph we can see that there is a general decrease in the amount of recipes submitted each month.
 
+<iframe src="assets/univariate_fig_month.html" width=800 height=600 frameBorder=0></iframe>
+
 2. Here is our second analysis as another bar graph that plots 'index' on the x and 'seasons' on the y. This show the distribution of recipes that were submitted each season (categorized above in our cleaning steps). Looking at this graph we can see that Spring and Winter have the most submitted recipes.
 
+<iframe src="assets/univariate_fig_season.html" width=800 height=600 frameBorder=0></iframe>
+
 3. Our third analysis is a histogram that plots the distribution of calories across all unique recipes. From the data we can state that generally higher and lower calorie recipes have slightly fewer counts of recipes. There is visible variation in the distribution as well. 
+
+<iframe src="assets/univariate_fig_hist_calories.html" width=800 height=600 frameBorder=0></iframe>
 
 ### Bivariate Analysis
 
@@ -53,7 +59,11 @@ For our bivariate analyses it should be noted that we created a new column calle
 
 1. Our first analysis uses a scatter plot that takes in 'calories_category' and index name 'recipe_count'. From the resulting plot we can see a clear variation among the seasons and calori categories. Fall seems to be the most consistently lowest among the four while winter seems to be consistently the highest. 
 
+<iframe src="assets/bivariate_fig_season_calories.html" width=800 height=600 frameBorder=0></iframe>
+
 2. Our second analysis uses a violin plot that takes in 'season' and 'calories'. The graph shows that Summer seems to be the most uniform in comparison to the other seasons. While Winter has a more erratic structure. Fall and Spring seem to be the closest in terms of seasons vs calories
+
+<iframe src="assets/bivariate_fig_violin_calories.html" width=800 height=600 frameBorder=0></iframe>
 
 ### Interesting Aggregates
 
@@ -78,9 +88,13 @@ We decided to test rating against two different column names for our permutation
 
 After running the permutation test on these columns we get an observed difference in means of 51.507230759 and a p-value of .121, and can conclude that the missingness of 'rating' is most likely not dependent on 'minutes'
 
+<iframe src="assets/perm_missing_test.html" width=800 height=600 frameBorder=0></iframe>
+
 2. Testing 'rating' and 'n_steps'
 
 After running the permutation test on these columns we get an observed difference in means of 1.331260648 and a p-value of 0.0, and can conclude that the missingness of 'rating' is most likely dependent on 'n_steps'
+
+<iframe src="assets/perm_missing_test2.html" width=800 height=600 frameBorder=0></iframe>
 
 ## Hypothesis Testing
 
@@ -89,3 +103,9 @@ We now circle back to our original topic and research question at hand.
 Null Hypothesis (H0): There is no significant difference in the mean calorie content among recipes submitted in different seasons.
 
 Alternative Hypothesis (H1): There is a significant difference in the mean calorie content among recipes submitted in different seasons. 
+
+<iframe src="assets/hypothesis_testing.html" width=800 height=600 frameBorder=0></iframe>
+
+stuff ???
+
+<iframe src="assets/empirical_hist.html" width=800 height=600 frameBorder=0></iframe>
