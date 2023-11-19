@@ -35,7 +35,6 @@ We took a couple steps to make our data more readable and relevant to our resear
 
 After taking these steps, the cleaned and more readable dataframe is as shown below:
 
-
 |     id | name                                 |   minutes | nutrition                                                        |   n_steps |   n_ingredients | date       |   rating |   avg_rating |   month | season   |   calories |   cal |
 |:-------|:-------------------------------------|:----------|:-----------------------------------------------------------------|:----------|:----------------|:-----------|:---------|:-------------|:--------|:---------|:-----------|:------|
 | 333281 | 1 brownies in the world    best ever |        40 | ['138.4', ' 10.0', ' 50.0', ' 3.0', ' 3.0', ' 19.0', ' 6.0']     |        10 |               9 | 2008-11-19 |        4 |            4 |      10 | Fall     |      138.4 | 138.4 |
