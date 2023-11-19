@@ -77,9 +77,34 @@ Our visual examples show interesting trends and plots so far, but we want differ
 
 1. Here is pivot table one where we show the relationship between calories and season. In this one we analyze the count, mean, median, min, max, and std of calories. From the data we can infer that Fall and Winter are the seasons with the highest mean calories while Spring and Summer are both less than them which corroborates with our above plots. 
 
-2. Here is pivot table two where we show the relationship between avg_rating and month. We analyze count, mean, median, min, max, and std of avg_rating for each month. Looking at the means we can see that they are mostly uniform with a different of less than .1 at max.  
+| season   |   ('count', 'cal') |   ('mean', 'cal') |   ('median', 'cal') |   ('min', 'cal') |   ('max', 'cal') |   ('std', 'cal') |
+|:---------|:-------------------|:------------------|:--------------------|:-----------------|:-----------------|:-----------------|
+| Fall     |              46394 |           432.172 |               308.6 |                0 |          17287.5 |          607.138 |
+| Spring   |              68479 |           412.099 |               296.2 |                0 |          17551.6 |          547.689 |
+| Summer   |              53654 |           410.673 |               296   |                0 |          18656   |          492.435 |
+| Winter   |              65888 |           419.837 |               307.8 |                0 |          17280.4 |          526.988 |
+
+2. Here is pivot table two where we show the relationship between avg_rating and month. We analyze count, mean, median, min, max, and std of avg_rating for each month. Looking at the means we can see that they are mostly uniform with a different of less than .1 at max. 
+
+|   month |   ('count', 'avg_rating') |   ('mean', 'avg_rating') |   ('median', 'avg_rating') |   ('min', 'avg_rating') |   ('max', 'avg_rating') |   ('std', 'avg_rating') |
+|:--------|:--------------------------|:-------------------------|:---------------------------|:------------------------|:------------------------|:------------------------|
+|       1 |                     30063 |                  4.64981 |                    4.80952 |                       1 |                       5 |                0.503994 |
+|       2 |                     22697 |                  4.65876 |                    4.83333 |                       1 |                       5 |                0.503039 |
+|       3 |                     23040 |                  4.68869 |                    4.875   |                       1 |                       5 |                0.477796 |
+|       4 |                     16905 |                  4.66964 |                    4.88889 |                       1 |                       5 |                0.520768 |
+|       5 |                     27826 |                  4.70827 |                    4.86207 |                       1 |                       5 |                0.4409   |
+
 
 3. Here is pivot table three where we show the relationship between n_ingredients and calories_category. We analyze count, mean, median, min, max, and std of n_ingredients. We can infer that with the increments of calorie_category the mean of n_ingredients goes up as well. Which shows a positive trend in these two categories when analyzed.
+
+| calories_category   |   ('count', 'n_ingredients') |   ('mean', 'n_ingredients') |   ('median', 'n_ingredients') |   ('min', 'n_ingredients') |   ('max', 'n_ingredients') |   ('std', 'n_ingredients') |
+|:--------------------|:-----------------------------|:----------------------------|:------------------------------|:---------------------------|:---------------------------|:---------------------------|
+| (0.0, 300.0]        |                       116720 |                     8.14746 |                             8 |                          1 |                         31 |                    3.41626 |
+| (300.0, 600.0]      |                        76937 |                     9.79881 |                             9 |                          1 |                         33 |                    3.75761 |
+| (600.0, 900.0]      |                        24259 |                    10.4949  |                            10 |                          1 |                         30 |                    4.18617 |
+| (900.0, inf]        |                        16397 |                    10.1623  |                            10 |                          1 |                         37 |                    4.55006 |
+| nan                 |                          102 |                     3.37255 |                             3 |                          2 |                          6 |                    1.50196 |
+
 
 ## Missingness Assessment
 ### NMAR Analysis
