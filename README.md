@@ -56,20 +56,20 @@ After taking these steps, the cleaned and more readable dataframe is as shown be
 
 We were most interested in the `month`, `seasons`, and `calories` columns for this analysis
 
-1. Here is our first analysis as a bar graph that plots 'index' on the x and 'month' on the y. This shows the distribution of recipes that were submitted each month. In this graph we can see that there is a general decrease in the amount of recipes submitted each month, with an unusual spike in number of recipes submitted in May. This visual representation provides a valuable snapshot of the overall temporal pattern in recipe submissions.
+Here is our first analysis as a bar graph that plots 'index' on the x and 'month' on the y. This shows the distribution of recipes that were submitted each month. In this graph we can see that there is a general decrease in the amount of recipes submitted each month, with an unusual spike in number of recipes submitted in May. This visual representation provides a valuable snapshot of the overall temporal pattern in recipe submissions.
 <iframe src="assets/univariate_fig_month.html" width=800 height=600 frameBorder=0></iframe>
 
-2. Here is our second analysis as another bar graph that plots 'index' on the x and 'seasons' on the y. This show the distribution of recipes that were submitted each season (categorized above in our cleaning steps). Looking at this graph we can see that Spring and Winter have the most submitted recipes. This could potentially be attributed to January (in Winter) and May (in Spring) having the most number of recipes submitted, as seen in the first bar graph, bringing the total for the two respective seasons. 
+Here is our second analysis as another bar graph that plots 'index' on the x and 'seasons' on the y. This show the distribution of recipes that were submitted each season (categorized above in our cleaning steps). Looking at this graph we can see that Spring and Winter have the most submitted recipes. This could potentially be attributed to January (in Winter) and May (in Spring) having the most number of recipes submitted, as seen in the first bar graph, bringing the total for the two respective seasons. 
 <iframe src="assets/univariate_fig_season.html" width=800 height=600 frameBorder=0></iframe>
 
 ### Bivariate Analysis
 
 For our bivariate analyses it should be noted that we created a new column called 'calories_category' that uses bins to categorize all calories in amounts of 300 [(0,300], [300, 600], [600,900], [900, inf)] and a new dataframe called count_season_calories_df that is used in our plot.
 
-1. Our first analysis uses a scatter plot that takes in 'calories_category' and index name 'recipe_count'. The resulting plot reveals a distinct variation across different seasons and calorie bins. Notably, in the 0 to 300 calorie bin, Spring has the most number of recipes, suggesting a potential inclination towards submssion of lighter, vegetable-centric recipes coinciding with the harvest season. Meanwhile, Winter has the most recipes in the other three bins with higher calorie categories, suggesting a potential preference for heartier, more calorie dense recipes during the colder months, especially around the holidays. While Fall seems to be the most consistently lowest among the four.
+Our first analysis uses a scatter plot that takes in 'calories_category' and index name 'recipe_count'. The resulting plot reveals a distinct variation across different seasons and calorie bins. Notably, in the 0 to 300 calorie bin, Spring has the most number of recipes, suggesting a potential inclination towards submssion of lighter, vegetable-centric recipes coinciding with the harvest season. Meanwhile, Winter has the most recipes in the other three bins with higher calorie categories, suggesting a potential preference for heartier, more calorie dense recipes during the colder months, especially around the holidays. While Fall seems to be the most consistently lowest among the four.
 <iframe src="assets/bivariate_fig_season_calories.html" width=800 height=600 frameBorder=0></iframe>
 
-2. Our second analysis uses a violin plot that takes in 'season' and 'calories'. The plot shows a similarity in distribution across all seasons, with each season contributing to a comparable spread of calorie values. However, the plot does show that Summer having the most uniform shape in terms of calorie distribution, compared to the other season. In contrast, Winter exhibits a more erratic structure, hinting at a potentially diverse range of calorie content in recipes during this colder season.  In contrast, Winter exhibits a more erratic structure, hinting at a potentially diverse range of calorie content in recipes during this colder season. Fall and Spring seem to be the closest in terms of seasons vs calories,  showcasing a closer alignment in terms of the relationship between the seasonality of recipe submissions and their associated calorie values.
+Our second analysis uses a violin plot that takes in 'season' and 'calories'. The plot shows a similarity in distribution across all seasons, with each season contributing to a comparable spread of calorie values. However, the plot does show that Summer having the most uniform shape in terms of calorie distribution, compared to the other season. In contrast, Winter exhibits a more erratic structure, hinting at a potentially diverse range of calorie content in recipes during this colder season.  In contrast, Winter exhibits a more erratic structure, hinting at a potentially diverse range of calorie content in recipes during this colder season. Fall and Spring seem to be the closest in terms of seasons vs calories,  showcasing a closer alignment in terms of the relationship between the seasonality of recipe submissions and their associated calorie values.
 <iframe src="assets/bivariate_fig_violin_calories.html" width=800 height=600 frameBorder=0></iframe>
 
 ### Interesting Aggregates
@@ -119,6 +119,7 @@ We decided to test rating against two different column names for our permutation
 
 #### Testing `rating` and `minutes`
 Null Hypothesis: There is no association between the missingness of ratings and the minutes of recipe preparation.
+
 Alternative Hypothesis: The missingness of ratings is dependent on the minutes of recipe preparation.
 
 After running the permutation test on these columns we get an observed difference in means of 51.507230759 and a p-value of .121. Using 0.05 as the significant threshold, since the p-value is higher than the threshold, we can conclude that the missingness of `rating` is most likely not dependent on `minutes`, which is Missing Completely at Random, MCAR.
@@ -127,6 +128,7 @@ After running the permutation test on these columns we get an observed differenc
 
 #### Testing `rating` and `n_steps`
 Null Hypothesis: There is no association between the missingness of ratings and the number of steps in the recipes.
+
 Alternative Hypothesis: The missingness of ratings is dependent on the the number of step in the recipes.
 
 After running the permutation test on these columns we get an observed difference in means of 1.331260648 and a p-value of approximately 0.0. Using 0.05 as the significant threshold, since the p-value is lower than the threshold, we can conclude that the missingness of `rating` is most likely dependent on `n_steps`, which is Missing At Random, MAR.
@@ -136,7 +138,7 @@ After running the permutation test on these columns we get an observed differenc
 
 We now circle back to our original topic and research question at hand. 
 
-Null Hypothesis (H0): There is no significant difference in the mean calorie content among recipes submitted in different seasons.
+Null Hypothesis (H0): There is no significant difference in the mean calorie content among recipes submitted in different seasons. 
 
 Alternative Hypothesis (H1): There is a significant difference in the mean calorie content among recipes submitted in different seasons. 
 
