@@ -35,7 +35,15 @@ We took a couple steps to make our data more readable and relevant to our resear
 
 After taking these steps, the cleaned and more readable dataframe is as shown below:
 
-- insert df embed here - 
+-test
+| name                                 |
+|:-------------------------------------|
+| 1 brownies in the world    best ever |
+| 1 in canada chocolate chip cookies   |
+| 412 broccoli casserole               |
+| 412 broccoli casserole               |
+| 412 broccoli casserole               |
+
 
 ### Univariate Analysis
 
