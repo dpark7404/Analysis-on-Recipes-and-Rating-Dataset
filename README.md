@@ -5,12 +5,15 @@ Authors: Daniel Park, Tracy Pham
 
 ## Project Overview:
 
-   In this research, we aim to investigate the relationship between the season in which recipes are submitted and the nutritional density, specifically focusing on calorie content. This analysis can provide insights into how dietary preferences and nutritional choices vary with the changing seasons
+   In this project, we aim to investigate the relationship between the season in which recipes are submitted and the nutritional density, specifically focusing on calorie content. This analysis can provide insights into how dietary preferences and nutritional choices vary with the changing seasons.
 
 
 ## Project Introduction:
 
 With the changing seasons follows a new set of recipes that people like to associate with and cook. People's dietary routines and preferences 
+
+### Research Question: 
+What is the relationship between the season in which recipes are submitted and calorie content ? 
 
 ## Dataset Explanation:
 
@@ -21,7 +24,7 @@ We used two datasets for this research question. The RAW_recipes and RAW_interac
 
 We took a couple steps to make our data more readable and relevant to our research question and topic. 
 
-1. First we left merged the recipes and interaction datasets together and filled all rating of 0 with np.nan.
+1. First we left merged the recipes and interaction datasets together and filled all rating of 0 with np.nan. This was done in response to possible reviews being submitted with no ratings. These get inputted as zero's into the dataset but they are false zeros. So we remove them and replace with np.nans for a more true resemblance of peoples ratings.
 
 2. We then found the average rating per recipe and added this back to the recipes dataset. 
 
@@ -29,7 +32,11 @@ We took a couple steps to make our data more readable and relevant to our resear
 
 4. We also created a 'calories' and 'cal' columns that contained the calorie values taken from the 'nutrition' column as string and float types, respectively. The nutrition column contained a lists that with each number in the lists corresponding to ['calories', etc, etc] in that particular order.
 
-5. We thought there may be certain anomalies in the data so we decided to remove outliers. The numbers we used were .95 for upper quartiles and .05 for lower quartiles. However, we only removed the values that were greater than the upper quartile. 
+5. We thought there may be certain anomalies in the data so we decided to remove outliers. The numbers we used were .95 for upper quartiles and .05 for lower quartiles. However, we only removed the values that were greater than the upper quartile. The reasoning is because smaller calorie foods are more relevant to our data because there are many foods that can fall within smaller calorie counts, however our data has some anomalies with recipes that have more than 40,000 calories. This throws off our mean and max in following analyses performed so removing only the higher bounds seemed fine.
+
+After taking these steps, the cleaned and more readable dataframe is as shown below:
+
+- insert df embed here - 
 
 ### Univariate Analysis
 
@@ -43,8 +50,23 @@ We were most interested in the 'month', 'seasons', and 'calories' columns for th
 
 ### Bivariate Analysis
 
-For our bivariate analyses it should be noted that we created a new column called 'calories_category' that uses bins to categorize all calories in amounts of 300 and a new dataframe called count_season_calories_df that is used in our plot.
+For our bivariate analyses it should be noted that we created a new column called 'calories_category' that uses bins to categorize all calories in amounts of 300 [(0,300], [300, 600], [600,900], [900, inf)] and a new dataframe called count_season_calories_df that is used in our plot.
 
 1. Our first analysis uses a scatter plot that takes in 'calories_category' and index name 'recipe_count'. From the resulting plot we can see a clear variation among the seasons and calori categories. Fall seems to be the most consistently lowest among the four while winter seems to be consistently the highest. 
 
 2. Our second analysis uses a violin plot that takes in 'season' and 'calories'. The graph shows that Summer seems to be the most uniform in comparison to the other seasons. While Winter has a more erratic structure. Fall and Spring seem to be the closest in terms of seasons vs calories
+
+### Interesting Aggregates
+
+Our visual examples show interesting trends and plots so far, but we want different reliable analyses and  
+
+## Missingness Assessment
+### NMAR Analysis
+
+
+
+### Missingness Dependency
+
+
+
+## Hypothesis Testing
