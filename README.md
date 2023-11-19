@@ -1,4 +1,4 @@
-# Analysis-on-Recipes-and-Rating-Dataset
+# Analysis on Recipes and Rating Dataset
 Project for DSC80 at UCSD
 
 Authors: Daniel Park, Tracy Pham
@@ -7,8 +7,7 @@ Authors: Daniel Park, Tracy Pham
 
    In this project, we aim to investigate the relationship between the season in which recipes are submitted and the nutritional density, specifically focusing on calorie content. This analysis can provide insights into how dietary preferences and nutritional choices vary with the changing seasons.
 
-
-## Project Introduction:
+### Project Introduction:
 
 With the changing seasons follows a new set of recipes that people like to associate with and cook. People's dietary routines and preferences 
 
@@ -58,15 +57,35 @@ For our bivariate analyses it should be noted that we created a new column calle
 
 ### Interesting Aggregates
 
-Our visual examples show interesting trends and plots so far, but we want different reliable analyses and  
+Our visual examples show interesting trends and plots so far, but we want different reliable analyses that can show the relationship between other columns of our data set and our created columns.
+
+1. Here is pivot table one where we show the relationship between calories and season. In this one we analyze the count, mean, median, min, max, and std of calories. From the data we can infer that Fall and Winter are the seasons with the highest mean calories while Spring and Summer are both less than them which corroborates with our above plots. 
+
+2. Here is pivot table two where we show the relationship between avg_rating and month. We analyze count, mean, median, min, max, and std of avg_rating for each month. Looking at the means we can see that they are mostly uniform with a different of less than .1 at max.  
+
+3. Here is pivot table three where we show the relationship between n_ingredients and calories_category. We analyze count, mean, median, min, max, and std of n_ingredients. We can infer that with the increments of calorie_category the mean of n_ingredients goes up as well. Which shows a positive trend in these two categories when analyzed.
 
 ## Missingness Assessment
 ### NMAR Analysis
 
-
+We believe the row 'review' with missing values to be the NMAR in our dataset. The reason for this is possibly because people who submit reviews may feel uninclined to leave reviews on recipes that they have no sort of connection to. 
 
 ### Missingness Dependency
 
+We decided to test rating against two different column names for our permutation test to see if there are observable differences. 
 
+1. Testing 'rating' and 'minutes'
+
+After running the permutation test on these columns we get an observed difference in means of 51.507230759 and a p-value of .121, and can conclude that the missingness of 'rating' is most likely not dependent on 'minutes'
+
+2. Testing 'rating' and 'n_steps'
+
+After running the permutation test on these columns we get an observed difference in means of 1.331260648 and a p-value of 0.0, and can conclude that the missingness of 'rating' is most likely dependent on 'n_steps'
 
 ## Hypothesis Testing
+
+We now circle back to our original topic and research question at hand. 
+
+Null Hypothesis (H0): There is no significant difference in the mean calorie content among recipes submitted in different seasons.
+
+Alternative Hypothesis (H1): There is a significant difference in the mean calorie content among recipes submitted in different seasons. 
