@@ -9,7 +9,7 @@ Authors: Daniel Park, Tracy Pham
    In this  project, we aim to unravel the connection between the seasonality of recipe submissions and their calorie content. As we navigate through the changing seasons, our primary inquiry centers around understanding how the nutritional composition of recipes varies with the seasons. Delving into the interplay between the timing of recipe submissions and calorie content, we investigate the relationship between the season in which recipes are submitted and the nutritional density, more specifically focusing on calorie content. This analysis aims to provide insights into how dietary preferences and nutritional choices vary with the changing seasons. Thus through out this project, we focused on the research question, what is the relationship between the season in which recipes are submitted and calorie content? By exploring this question, we aspire to highlight the seasonal dynamics that influence the nutritional landscape of the recipes people choose to share and indulge in. 
 
 ### Dataset Explanation:
-The merged dataset, that we created by merging a dataset with 83782 rows of different recipes and a dataset with 731927 rows of reviews on the recipes, contains 731927 rows over removing outliers. The following are columns from the merged dataset that are relevant to our research question and analysis.
+The merged dataset, that we created by merging a dataset with 83782 rows of different recipes and a dataset with 731927 rows of reviews on the recipes, contains 83776 rows after removing outliers and duplicates. The following are columns from the merged dataset that are relevant to our research question and analysis.
 
 |Column	                 |Description|
 |---                     |---        |
@@ -43,13 +43,13 @@ We took a couple steps to make our data more readable and relevant to our resear
 
 After taking these steps, the cleaned and more readable dataframe is as shown below:
 
-|     id | name                                 |   minutes |   n_ingredients |   rating |   avg_rating |   month | season   |   calories |   cal |
-|:-------|:-------------------------------------|:----------|:----------------|:---------|:-------------|:--------|:---------|:-----------|:------|
-| 333281 | 1 brownies in the world    best ever |        40 |               9 |        4 |            4 |      10 | Fall     |      138.4 | 138.4 |
-| 453467 | 1 in canada chocolate chip cookies   |        45 |              11 |        5 |            5 |       4 | Spring   |      595.1 | 595.1 |
-| 306168 | 412 broccoli casserole               |        40 |               9 |        5 |            5 |       5 | Spring   |      194.8 | 194.8 |
-| 306168 | 412 broccoli casserole               |        40 |               9 |        5 |            5 |       5 | Spring   |      194.8 | 194.8 |
-| 306168 | 412 broccoli casserole               |        40 |               9 |        5 |            5 |       5 | Spring   |      194.8 | 194.8 |
+|     id | name                                 |   minutes |   n_steps |   n_ingredients |   rating |   avg_rating |   month | season   |   calories |   cal |
+|:-------|:-------------------------------------|:----------|:----------|:----------------|:---------|:-------------|:--------|:---------|:-----------|:------|
+| 333281 | 1 brownies in the world    best ever |        40 |        10 |               9 |        4 |            4 |      10 | Fall     |      138.4 | 138.4 |
+| 453467 | 1 in canada chocolate chip cookies   |        45 |        12 |              11 |        5 |            5 |       4 | Spring   |      595.1 | 595.1 |
+| 306168 | 412 broccoli casserole               |        40 |         6 |               9 |        5 |            5 |       5 | Spring   |      194.8 | 194.8 |
+| 286009 | millionaire pound cake               |       120 |         7 |               7 |        5 |            5 |       2 | Winter   |      878.3 | 878.3 |
+| 475785 | 2000 meatloaf                        |        90 |        17 |              13 |        5 |            5 |       3 | Spring   |      267   | 267   |
 
 
 ### Univariate Analysis
@@ -57,20 +57,20 @@ After taking these steps, the cleaned and more readable dataframe is as shown be
 We were most interested in the `month`, `seasons`, and `calories` columns for this analysis
 
 Here is our first analysis as a bar graph that plots 'index' on the x and 'month' on the y. This shows the distribution of recipes that were submitted each month. In this graph we can see that there is a general decrease in the amount of recipes submitted each month, with an unusual spike in number of recipes submitted in May. This visual representation provides a valuable snapshot of the overall temporal pattern in recipe submissions.
-<iframe src="assets/univariate_fig_month.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/fig_one.html" width=800 height=600 frameBorder=0></iframe>
 
 Here is our second analysis as another bar graph that plots 'index' on the x and 'seasons' on the y. This show the distribution of recipes that were submitted each season (categorized above in our cleaning steps). Looking at this graph we can see that Spring and Winter have the most submitted recipes. This could potentially be attributed to January (in Winter) and May (in Spring) having the most number of recipes submitted, as seen in the first bar graph, bringing the total for the two respective seasons. 
-<iframe src="assets/univariate_fig_season.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/fig_two.html" width=800 height=600 frameBorder=0></iframe>
 
 ### Bivariate Analysis
 
 For our bivariate analyses it should be noted that we created a new column called 'calories_category' that uses bins to categorize all calories in amounts of 300 [(0,300], [300, 600], [600,900], [900, inf)] and a new dataframe called count_season_calories_df that is used in our plot.
 
 Our first analysis uses a scatter plot that takes in 'calories_category' and index name 'recipe_count'. The resulting plot reveals a distinct variation across different seasons and calorie bins. Notably, in the 0 to 300 calorie bin, Spring has the most number of recipes, suggesting a potential inclination towards submssion of lighter, vegetable-centric recipes coinciding with the harvest season. Meanwhile, Winter has the most recipes in the other three bins with higher calorie categories, suggesting a potential preference for heartier, more calorie dense recipes during the colder months, especially around the holidays. While Fall seems to be the most consistently lowest among the four.
-<iframe src="assets/bivariate_fig_season_calories.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/fig_four.html" width=800 height=600 frameBorder=0></iframe>
 
 Our second analysis uses a violin plot that takes in 'season' and 'calories'. The plot shows a similarity in distribution across all seasons, with each season contributing to a comparable spread of calorie values. However, the plot does show that Summer having the most uniform shape in terms of calorie distribution, compared to the other season. In contrast, Winter exhibits a more erratic structure, hinting at a potentially diverse range of calorie content in recipes during this colder season.  In contrast, Winter exhibits a more erratic structure, hinting at a potentially diverse range of calorie content in recipes during this colder season. Fall and Spring seem to be the closest in terms of seasons vs calories,  showcasing a closer alignment in terms of the relationship between the seasonality of recipe submissions and their associated calorie values.
-<iframe src="assets/bivariate_fig_violin_calories.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/fig_five.html" width=800 height=600 frameBorder=0></iframe>
 
 ### Interesting Aggregates
 
@@ -80,32 +80,33 @@ Here is pivot table one where we show the relationship between calories and seas
 
 | season   |   ('count', 'cal') |   ('mean', 'cal') |   ('median', 'cal') |   ('min', 'cal') |   ('max', 'cal') |   ('std', 'cal') |
 |:---------|:-------------------|:------------------|:--------------------|:-----------------|:-----------------|:-----------------|
-| Fall     |              46394 |           432.172 |               308.6 |                0 |          17287.5 |          607.138 |
-| Spring   |              68479 |           412.099 |               296.2 |                0 |          17551.6 |          547.689 |
-| Summer   |              53654 |           410.673 |               296   |                0 |          18656   |          492.435 |
-| Winter   |              65888 |           419.837 |               307.8 |                0 |          17280.4 |          526.988 |
+| Fall     |              17286 |           432.561 |               309.8 |                0 |          17287.5 |          589.317 |
+| Spring   |              23971 |           427.701 |               305.7 |                0 |          17551.6 |          585.98  |
+| Summer   |              19699 |           420.765 |               300.5 |                0 |          18656   |          543.145 |
+| Winter   |              22820 |           430.351 |               306   |                0 |          17280.4 |          598.251 |
 
 
 Here is pivot table two where we show the relationship between avg_rating and month. We analyze count, mean, median, min, max, and std of avg_rating for each month. Looking at the means we can see that they are mostly uniform with a different of less than .1 at most. This suggests a general stability in average ratings across the months, indicating a consistent trend in how recipes are rated throughout the year.
 
 |   month |   ('count', 'avg_rating') |   ('mean', 'avg_rating') |   ('median', 'avg_rating') |   ('min', 'avg_rating') |   ('max', 'avg_rating') |   ('std', 'avg_rating') |
 |:--------|:--------------------------|:-------------------------|:---------------------------|:------------------------|:------------------------|:------------------------|
-|       1 |                     30063 |                  4.64981 |                    4.80952 |                       1 |                       5 |                0.503994 |
-|       2 |                     22697 |                  4.65876 |                    4.83333 |                       1 |                       5 |                0.503039 |
-|       3 |                     23040 |                  4.68869 |                    4.875   |                       1 |                       5 |                0.477796 |
-|       4 |                     16905 |                  4.66964 |                    4.88889 |                       1 |                       5 |                0.520768 |
-|       5 |                     27826 |                  4.70827 |                    4.86207 |                       1 |                       5 |                0.4409   |
+|       1 |                      9894 |                  4.59429 |                          5 |                       1 |                       5 |                0.66148  |
+|       2 |                      7434 |                  4.60152 |                          5 |                       1 |                       5 |                0.651564 |
+|       3 |                      7734 |                  4.63237 |                          5 |                       1 |                       5 |                0.624666 |
+|       4 |                      6506 |                  4.61931 |                          5 |                       1 |                       5 |                0.660085 |
+|       5 |                      9057 |                  4.65977 |                          5 |                       1 |                       5 |                0.581814 |
 
 
 Here is pivot table three where we show the relationship between n_ingredients and calories_category.  By looking at count, mean, median, min, max, and std of n_ingredients, we observe a clear trend: as calorie categories increase, the mean number of ingredients also tend to go up as well. This indicates a positive correlation, suggesting that recipes with more calories tend to have more ingredients. This finding helps provide further insights into the relationship between recipe complexity and nutritional content.
 
 | calories_category   |   ('count', 'n_ingredients') |   ('mean', 'n_ingredients') |   ('median', 'n_ingredients') |   ('min', 'n_ingredients') |   ('max', 'n_ingredients') |   ('std', 'n_ingredients') |
 |:--------------------|:-----------------------------|:----------------------------|:------------------------------|:---------------------------|:---------------------------|:---------------------------|
-| (0.0, 300.0]        |                       116720 |                     8.14746 |                             8 |                          1 |                         31 |                    3.41626 |
-| (300.0, 600.0]      |                        76937 |                     9.79881 |                             9 |                          1 |                         33 |                    3.75761 |
-| (600.0, 900.0]      |                        24259 |                    10.4949  |                            10 |                          1 |                         30 |                    4.18617 |
-| (900.0, inf]        |                        16397 |                    10.1623  |                            10 |                          1 |                         37 |                    4.55006 |
-| nan                 |                          102 |                     3.37255 |                             3 |                          2 |                          6 |                    1.50196 |
+| (0.0, 300.0]        |                        41133 |                     8.28486 |                             8 |                          1 |                         31 |                    3.45949 |
+| (300.0, 600.0]      |                        27826 |                     9.92119 |                            10 |                          1 |                         33 |                    3.73832 |
+| (600.0, 900.0]      |                         8717 |                    10.6094  |                            10 |                          1 |                         30 |                    4.16619 |
+| (900.0, inf]        |                         6074 |                    10.2861  |                            10 |                          1 |                         37 |                    4.48296 |
+| nan                 |                           26 |                     3.19231 |                             3 |                          2 |                          6 |                    1.09615 |
+
 
 
 ## Missingness Assessment
@@ -124,7 +125,7 @@ Alternative Hypothesis: The missingness of ratings is dependent on the minutes o
 
 After running the permutation test on these columns we get an observed difference in means of 51.507230759 and a p-value of .121. Using 0.05 as the significant threshold, since the p-value is higher than the threshold, we can conclude that the missingness of `rating` is most likely not dependent on `minutes`, which is Missing Completely at Random, MCAR.
 
-<iframe src="assets/perm_missing_test.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/fig_five_1.html" width=800 height=600 frameBorder=0></iframe>
 
 #### Testing `rating` and `n_steps`
 Null Hypothesis: There is no association between the missingness of ratings and the number of steps in the recipes.
@@ -132,7 +133,7 @@ Null Hypothesis: There is no association between the missingness of ratings and 
 Alternative Hypothesis: The missingness of ratings is dependent on the the number of step in the recipes.
 
 After running the permutation test on these columns we get an observed difference in means of 1.331260648 and a p-value of approximately 0.0. Using 0.05 as the significant threshold, since the p-value is lower than the threshold, we can conclude that the missingness of `rating` is most likely dependent on `n_steps`, which is Missing At Random, MAR.
-<iframe src="assets/perm_missing_test2.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/fig_five_2.html" width=800 height=600 frameBorder=0></iframe>
 
 ## Hypothesis Testing
 
@@ -155,7 +156,7 @@ Columns used: For the permutation test, the columns selected to use in the test 
 Since the data for `cal` are float types, we used the difference in mean as test statistics. In addition the significance level chosen to compare with p-value generated is 0.05.
 
 ### Permutation Test
-<iframe src="assets/empirical_hist.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/fig_six.html" width=800 height=600 frameBorder=0></iframe>
 
 ### Conclusion
-After conducting the permutation test, we get an observed difference in means of 9.1641596154437427 and a p-value of approximately 0.0. Using 0.05 as the significant threshold, since the p-value is lower than the threshold, we can reject the null hypothesis. This indicates a statistically significant difference in the mean calorie content across seasons, suggesting that seasonal variations play a role in influencing the nutritional composition of submitted recipes.
+After conducting the permutation test, we get an observed difference in means of 9.1641596154437427 and a p-value of approximately 0.044. Using 0.05 as the significant threshold, since the p-value is lower than the threshold, we can reject the null hypothesis. This indicates a statistically significant difference in the mean calorie content across seasons, suggesting that seasonal variations play a role in influencing the nutritional composition of submitted recipes.
